@@ -80,8 +80,14 @@ class ProductController extends Controller
      * @param  \App\Models\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Product $product)
+   
+
+    public function delete($id)
     {
+
+        error_log($id);
+        $product = Product::findOrfail($id);
+        error_log($product);
         $product->delete();
         return 204;
     }

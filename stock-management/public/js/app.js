@@ -65968,7 +65968,7 @@ var Create = /*#__PURE__*/function (_React$Component) {
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "col-5"
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Name:", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-        "class": "form-control",
+        className: "form-control",
         type: "text",
         id: "name",
         value: this.state.newProductData.name,
@@ -65981,7 +65981,7 @@ var Create = /*#__PURE__*/function (_React$Component) {
           });
         }
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Price:", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-        "class": "form-control",
+        className: "form-control",
         type: "float",
         id: "price",
         value: this.state.newProductData.price,
@@ -65994,7 +65994,7 @@ var Create = /*#__PURE__*/function (_React$Component) {
           });
         }
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Quantity:", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-        "class": "form-control",
+        className: "form-control",
         type: "number",
         id: "quantity",
         value: this.state.newProductData.quantity,
@@ -66007,14 +66007,14 @@ var Create = /*#__PURE__*/function (_React$Component) {
           });
         }
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-        "class": "btn btn-info",
+        className: "btn btn-info",
         type: "submit",
         onClick: this.addProduct.bind(this),
         value: "Enviar"
       }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("table", {
-        "class": "table table-bordered table-hover table-striped"
+        className: "table table-bordered table-hover table-striped"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("caption", null, "Products"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("thead", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", {
-        "class": "thead-info"
+        className: "thead-info"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "ID"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Name"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Price"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Quantity"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tbody", null, products)));
     }
   }]);
@@ -66130,7 +66130,6 @@ var ShowProducts = /*#__PURE__*/function (_React$Component) {
       var _this3 = this;
 
       var _this$state$editProdu = this.state.editProductData,
-          productID = _this$state$editProdu.productID,
           name = _this$state$editProdu.name,
           price = _this$state$editProdu.price,
           quantity = _this$state$editProdu.quantity;
@@ -66152,107 +66151,122 @@ var ShowProducts = /*#__PURE__*/function (_React$Component) {
       });
     }
   }, {
+    key: "deleteProduct",
+    value: function deleteProduct(id) {
+      var _this4 = this;
+
+      axios__WEBPACK_IMPORTED_MODULE_2___default.a["delete"]('http://127.0.0.1:8000/producti/' + id).then(function (response) {
+        console.log(id);
+
+        _this4.loadProduct();
+      });
+    }
+  }, {
     key: "render",
     value: function render() {
-      var _this4 = this;
+      var _this5 = this;
 
       var products = this.state.products.map(function (product) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", {
           key: product.id
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, " ", product.id), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, " ", product.name), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, " $", product.price), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, " ", product.quantity), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
           type: "button",
-          "class": "btn btn-warning",
+          className: "btn btn-warning",
           "data-toggle": "modal",
           "data-target": "#exampleModal",
-          onClick: _this4.editProduct.bind(_this4, product.id, product.name, product.price, product.quantity)
-        }, "Edit this product")));
+          onClick: _this5.editProduct.bind(_this5, product.id, product.name, product.price, product.quantity)
+        }, "Edit this product")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+          type: "button",
+          className: "btn btn-danger",
+          onClick: _this5.deleteProduct.bind(_this5, product.id)
+        }, "Delete")));
       });
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "container"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        "class": "modal fade",
+        className: "modal fade",
         id: "exampleModal",
-        tabindex: "-1",
+        tabIndex: "-1",
         role: "dialog",
         "aria-labelledby": "exampleModalLabel",
         "aria-hidden": "true"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        "class": "modal-dialog",
+        className: "modal-dialog",
         role: "document"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        "class": "modal-content"
+        className: "modal-content"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        "class": "modal-header"
+        className: "modal-header"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", {
-        "class": "modal-title",
+        className: "modal-title",
         id: "exampleModalLabel"
       }, "Edit Product #", this.state.editProductData.id), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         type: "button",
-        "class": "close",
+        className: "close",
         "data-dismiss": "modal",
         "aria-label": "Close"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
         "aria-hidden": "true"
       }, "\xD7"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        "class": "modal-body"
+        className: "modal-body"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Name:", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-        "class": "form-control",
+        className: "form-control",
         type: "text",
         id: "name",
         value: this.state.editProductData.name,
         onChange: function onChange(e) {
-          var editProductData = _this4.state.editProductData;
+          var editProductData = _this5.state.editProductData;
           editProductData.name = e.target.value;
 
-          _this4.setState({
+          _this5.setState({
             editProductData: editProductData
           });
         }
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Price:", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-        "class": "form-control",
+        className: "form-control",
         type: "float",
         id: "price",
         value: this.state.editProductData.price,
         onChange: function onChange(e) {
-          var editProductData = _this4.state.editProductData;
+          var editProductData = _this5.state.editProductData;
           editProductData.price = e.target.value;
 
-          _this4.setState({
+          _this5.setState({
             editProductData: editProductData
           });
         }
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Quantity:", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-        "class": "form-control",
+        className: "form-control",
         type: "number",
         id: "quantity",
         value: this.state.editProductData.quantity,
         onChange: function onChange(e) {
-          var editProductData = _this4.state.editProductData;
+          var editProductData = _this5.state.editProductData;
           editProductData.quantity = e.target.value;
 
-          _this4.setState({
+          _this5.setState({
             editProductData: editProductData
           });
         }
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-        "class": "btn btn-info",
+        className: "btn btn-info",
         type: "submit",
         onClick: this.updateProduct.bind(this),
         value: "Edit"
       }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        "class": "modal-footer"
+        className: "modal-footer"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         type: "button",
-        "class": "btn btn-secondary",
+        className: "btn btn-secondary",
         "data-dismiss": "modal"
       }, "Close"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         type: "button",
-        "class": "btn btn-primary"
+        className: "btn btn-primary"
       }, "Save changes"))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("table", {
-        "class": "table table-bordered table-hover table-striped"
+        className: "table table-bordered table-hover table-striped"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("caption", null, "Products"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("thead", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", {
-        "class": "thead-dark"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "ID"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Name"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Price"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Quantity"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Edit"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tbody", null, products)));
+        className: "thead-dark"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "ID"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Name"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Price"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Quantity"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Edit"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Delete"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tbody", null, products)));
     }
   }]);
 

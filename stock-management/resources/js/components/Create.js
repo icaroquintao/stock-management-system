@@ -64,7 +64,7 @@ export default class Create extends React.Component {
                 <form>
                 <label>
                 Name:
-                <input class="form-control" type="text" id="name" value={this.state.newProductData.name} onChange={(e) =>{
+                <input className="form-control" type="text" id="name" value={this.state.newProductData.name} onChange={(e) =>{
                     let {newProductData} = this.state
                     newProductData.name = e.target.value
                     this.setState({newProductData})
@@ -73,7 +73,7 @@ export default class Create extends React.Component {
                 <br></br>
                 <label>
                 Price:
-                <input class="form-control" type="float" id="price" value={this.state.newProductData.price} onChange={(e) =>{
+                <input className="form-control" type="float" id="price" value={this.state.newProductData.price} onChange={(e) =>{
                     let {newProductData} = this.state
                     newProductData.price = e.target.value
                     this.setState({newProductData})
@@ -82,22 +82,22 @@ export default class Create extends React.Component {
                 <br></br>
                 <label>
                 Quantity:
-                <input class="form-control" type="number" id="quantity" value={this.state.newProductData.quantity} onChange={(e) =>{
+                <input className="form-control" type="number" id="quantity" value={this.state.newProductData.quantity} onChange={(e) =>{
                     let {newProductData} = this.state
                     newProductData.quantity = e.target.value
                     this.setState({newProductData})
                 }}/>
                 </label>
                 <br></br>
-                <input  class="btn btn-info" type="submit" onClick={this.addProduct.bind(this)} value="Enviar" />
+                <input  className="btn btn-info" type="submit" onClick={this.addProduct.bind(this)} value="Enviar" />
                 </form>
                 </div>
                 <br></br>
-                <table class="table table-bordered table-hover table-striped">
+                <table className="table table-bordered table-hover table-striped">
                     <caption>Products</caption>
 
                     <thead>
-                        <tr class="thead-info">
+                        <tr className="thead-info">
                             <th>ID</th>
                             <th>Name</th>
                             <th>Price</th>
