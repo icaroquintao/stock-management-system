@@ -67,10 +67,12 @@ class ProductController extends Controller
      * @param  \App\Models\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Product $product)
+    public function update(Request $request, $id)
     {
-        //
-    }
+        $product = Product::findOrfail($id);
+        $product->update($request->all());
+        
+     }
 
     /**
      * Remove the specified resource from storage.
@@ -80,6 +82,7 @@ class ProductController extends Controller
      */
     public function destroy(Product $product)
     {
-        //
+        $product->delete();
+        return 204;
     }
 }
