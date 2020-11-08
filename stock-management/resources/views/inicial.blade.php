@@ -34,7 +34,7 @@
                     </div>
         
                 <div class="col">
-                    <p>  <a type="button" class="btn btn-info btn-lg btn-block" href=""><i class="far fa-list-alt"></i> Create a product</a></p>
+                    <p>  <a type="button" class="btn btn-info btn-lg btn-block" href="{{route('create')}}"><i class="far fa-list-alt"></i> Create a product</a></p>
                
                 </div>
                 <div class="col">

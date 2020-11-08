@@ -28,4 +28,8 @@ Route::get('/product', function () {
     return view('product');
 })->name('product');
 
+Route::get('/create', function () {
+    return view('create');
+})->name('create');
+
 Route::resource('/producti', ProductController::class);
