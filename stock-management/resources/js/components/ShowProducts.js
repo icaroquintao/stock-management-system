@@ -128,14 +128,15 @@ export default class ShowProducts extends React.Component {
                     this.setState({editProductData})
                 }}/>
                 </label>
-                <br></br>
-                <input  className="btn btn-info" type="submit" onClick={this.updateProduct.bind(this)} value="Edit" />
-                </form>
-      </div>
-      <div className="modal-footer">
+                
+                <div className="modal-footer">
         <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" className="btn btn-primary" >Save changes</button>
+        <button type="button" className="btn btn-info" type="submit" onClick={this.updateProduct.bind(this)}>Save changes</button>
+        
       </div>
+                </form>    
+      </div>
+      
     </div>
   </div>
 </div>
