@@ -62,7 +62,7 @@ export default class ShowProducts extends React.Component {
     }
     deleteProduct(id){
         axios.delete('http://127.0.0.1:8000/producti/'+id).then((response)=>{
-            console.log(id)
+            //console.log(id)
             this.loadProduct()
         })
     }

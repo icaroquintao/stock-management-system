@@ -66156,8 +66156,7 @@ var ShowProducts = /*#__PURE__*/function (_React$Component) {
       var _this4 = this;
 
       axios__WEBPACK_IMPORTED_MODULE_2___default.a["delete"]('http://127.0.0.1:8000/producti/' + id).then(function (response) {
-        console.log(id);
-
+        //console.log(id)
         _this4.loadProduct();
       });
     }

@@ -82,12 +82,10 @@ class ProductController extends Controller
      */
    
 
-    public function delete($id)
+    public function destroy($id)
     {
 
-        error_log($id);
         $product = Product::findOrfail($id);
-        error_log($product);
         $product->delete();
         return 204;
     }
