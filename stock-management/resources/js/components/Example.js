@@ -1,24 +1,77 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React, { Component } from "react";
+import ReactDOM from "react-dom";
+import axios from 'axios';
 
-function Example() {
-    return (
-        <div className="container">
-            <div className="row justify-content-center">
-                <div className="col-md-8">
-                    <div className="card">
-                        <div className="card-header">Example Component</div>
+export default class Example extends React.Component{
 
-                        <div className="card-body">I'm an example component!</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    );
+    constructor(){
+        super()
+        this.state = {
+            products: []
+        }
+    }
+
+    loadProduct(){
+        axios.get('http://127.0.0.1:8000/producti').then((response)=> {
+            this.setState({
+                products: response.data
+            })
+        })
+    }
+
+    componentWillMount(){
+        this.loadProduct();
+    }
+
+
+
+    render(){
+
+        let products = this.state.products.map((product) => {
+            return (
+                <tr key={product.id}>
+                <td> {product.id}</td> 
+                <td> {product.name}</td> 
+                <td> ${product.price}</td> 
+                <td> {product.quantity}</td> 
+                <td><a href="">Editar/Excluir</a></td>
+                </tr>
+            )
+        })
+
+
+
+        return (
+<div className="container">
+            <br></br>
+    <table class="table table-bordered table-hover table-striped">
+
+            <caption>Products</caption>
+
+        <thead>
+
+        <tr class="thead-dark">
+        <th>ID</th>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Quantity</th>
+        <th>Editar ou Excluir</th>
+       
+        </tr>
+        </thead>
+
+        <tbody>
+        {products}
+        </tbody>
+
+
+
+    </table>
+</div>
+        );
+    }
 }
 
-export default Example;
-
-if (document.getElementById('example')) {
-    ReactDOM.render(<Example />, document.getElementById('example'));
+if (document.getElementById("example")) {
+    ReactDOM.render(<Example />, document.getElementById("example"));
 }
