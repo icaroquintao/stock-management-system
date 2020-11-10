@@ -34,7 +34,7 @@
                     </div>
         
                 <div class="col">
-                    <p>  <a type="button" class="btn btn-info btn-lg btn-block" href="{{route('create')}}"><i class="far fa-list-alt"></i> Create a product</a></p>
+                    <p>  <a type="button" class="btn btn-info btn-lg btn-block" href="{{route('create')}}"><i class="fas fa-plus-circle"></i> Create a product</a></p>
                
                 </div>
                 <div class="col">
@@ -47,7 +47,7 @@
                       </div>
         
                 <div class="col">
-                    <p> <a type="button" class="btn btn-info btn-lg btn-block" href="{{route('product')}}"> <i class="fas fa-users"></i> Products</a></p>
+                    <p> <a type="button" class="btn btn-info btn-lg btn-block" href="{{route('product')}}"> <i class="fas fa-list-alt"></i> Products</a></p>
               
                 </div>
                 <div class="col">
@@ -61,7 +61,7 @@
                 </div>
         
                 <div class="col">
-                    <p> <a type="button" class="btn btn-info btn-lg btn-block" href=""><i class="far fa-list-alt"></i> History of product</a></p>
+                    <p> <button type="button" class="btn btn-info btn-lg btn-block" href="" disabled><i class="far fa-list-alt"></i> History of product</button></p>
                 
                 </div>
                 <div class="col">
@@ -74,7 +74,7 @@
                 </div>
         
                 <div class="col">
-                    <p> <a type="button" class="btn btn-info btn-lg btn-block" href=""> <i class="fas fa-map-marker-alt"></i> Bulk update feature</a></p>
+                    <p> <button type="button" class="btn btn-info btn-lg btn-block" href="" disabled> <i class="fas fa-list"></i> Bulk update feature</button></p>
                
                 </div>
                 <div class="col">
